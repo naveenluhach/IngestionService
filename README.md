@@ -77,7 +77,7 @@ country: string
 Primary Key: id
 
 
-**CHANGES IN VERSION 2:**
+**CHANGES IN VERSION 2: TODO**
 
 Everything is derived through the data store MySQL. I have identified few use cases wherein we can move some load from MySQL to cache layer.
 Introducing Queue between Service and MySQL to enable processing of more load.
