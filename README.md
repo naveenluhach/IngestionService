@@ -6,7 +6,7 @@ Start this application(as many instances as you want) at a different port(s) tha
 
 **High Level Diagram:**
 
-https://app.diagrams.net/#G1sd6eNXGbbStOIRZmICgysz-MObFZYhMM
+HLD.png
 
 **Design **
 
@@ -80,3 +80,4 @@ Primary Key: id
 **CHANGES IN VERSION 2:**
 
 Everything is derived through the data store MySQL. I have identified few use cases wherein we can move some load from MySQL to cache layer.
+Introducing Queue between Service and MySQL to enable processing of more load.
