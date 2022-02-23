@@ -1,21 +1,30 @@
-How to make this application run E2E?
+**How to make this application run E2E?**
 
 Start the Eureka Server Application : https://github.com/naveenluhach/EurekaServer
 Start this application(as many instances as you want) at a different port(s) than above application. You can change the port in application.yml.
 
 
-High Level Diagram:
+**High Level Diagram:**
 
 https://app.diagrams.net/#G1sd6eNXGbbStOIRZmICgysz-MObFZYhMM
 
-Data and Communication Flow:
+**Design **
 
+a.Pull Based Model:
+Scheduler - every X hours (configurable)
+OnDemand via Rest client (Rare usage/ one time usage)
+
+b.Push Based Model:
+Stream APIs from different sources will be integrated.
+
+
+**Data and Communication Flow:**
 Ingestion application is meant to ingest different types/formats of feedback from different sources for a client and make this data available for analysis.
 Example: Myntra as a client may want to collect feedback on their products from Twitter, Google Play Store app reviews section etc.
 
-Functional Requirements:
-1. Acquire, Clean and Ingest Data from a sources and store in a way which can be consumed easily later on.
 
+**Functional Requirements:**
+1. Acquire, Clean and Ingest Data from a sources and store in a way which can be consumed easily later on.
   
 Before storage, we have to perform data cleaning:
 a.outliers - different from the rest of the data
@@ -23,13 +32,13 @@ b.duplicates- if hash is same
 c.rule-violation - contains banned words
 d.pattern violation- spelling mistakes
 
-3. Onboarding of a new client should have minimal changes.(Used strategy pattern here)
+2. Onboarding of a new client should have minimal changes.(Used strategy pattern here)
 
-Non Functional Requirements:
+**Non Functional Requirements:**
 1. High Availability. (Made the application eureka client to load balance and scale out)
 
 
-Entities involved/ data modeling:
+**Modeling:**
 
 1.feedback
 
