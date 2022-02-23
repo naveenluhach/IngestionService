@@ -39,40 +39,42 @@ d.pattern violation- spelling mistakes
 
 
 **Modeling:**
+Database used : MySQL
+Tables involved:
 
 1.feedback
 
-  `id` int NOT NULL AUTO_INCREMENT,
-  `type` varchar(20) DEFAULT NULL,
-  `language` varchar(20) DEFAULT NULL,
-  `sourceid` int DEFAULT NULL,
-  `tenantid` int DEFAULT NULL,
-  `content` varchar(1000) DEFAULT NULL,
-  `metadataid` int unsigned DEFAULT NULL,
-  `hash` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unq_feedback_1` (`hash`)
+  id: int
+  type: string //represents tweet, play store review review, comment, article
+  language: string //represents english, hindi etc
+  sourceid: int 
+  tenantid: int 
+  content: string // represents actual content
+  metadataid: int // represent foreign key of meta data table specific to source (twitter, google etc)
+  hash: string //represents sha256 hash of above fields to check for duplicacy
+  Primary key: id
+  Unique key: hash
   
 2. sources
 
-   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  id: int
+  name: string 
+  PRIMARY KEY: id
 
 3. tenant
    
-   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  `sourceid` int DEFAULT NULL,
-  `userid` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  id: int 
+  name: string
+  sourceid: int
+  userid: int 
+  Primay key: id
 
 
 4. twittermetadata
 
-`id` int NOT NULL AUTO_INCREMENT,
-  `country` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+id: int
+country: string 
+Primary Key: id
 
 
 **CHANGES IN VERSION 2:**
