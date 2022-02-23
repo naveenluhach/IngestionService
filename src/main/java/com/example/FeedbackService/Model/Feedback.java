@@ -1,14 +1,29 @@
 package com.example.FeedbackService.Model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "feedback")
 public class Feedback {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    int type;
+    String type;
     int sourceid;
     int tenantid;
-    String contentid;
+    String content;
     String Language;
-    int metadata;
+    int metadataid;
+    String hash;
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
 
     public int getId() {
         return id;
@@ -18,11 +33,11 @@ public class Feedback {
         this.id = id;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -42,12 +57,12 @@ public class Feedback {
         this.tenantid = tenantid;
     }
 
-    public String getContentid() {
-        return contentid;
+    public String getContent() {
+        return content;
     }
 
-    public void setContentid(String contentid) {
-        this.contentid = contentid;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getLanguage() {
@@ -58,12 +73,12 @@ public class Feedback {
         Language = language;
     }
 
-    public int getMetadata() {
-        return metadata;
+    public int getMetadataid() {
+        return metadataid;
     }
 
-    public void setMetadata(int metadata) {
-        this.metadata = metadata;
+    public void setMetadataid(int metadataid) {
+        this.metadataid = metadataid;
     }
 
     @Override
@@ -73,9 +88,9 @@ public class Feedback {
                 ", type=" + type +
                 ", sourceid=" + sourceid +
                 ", tenantid=" + tenantid +
-                ", contentid='" + contentid + '\'' +
+                ", contentid='" + content + '\'' +
                 ", Language='" + Language + '\'' +
-                ", metadata=" + metadata +
+                ", metadata=" + metadataid +
                 '}';
     }
 }

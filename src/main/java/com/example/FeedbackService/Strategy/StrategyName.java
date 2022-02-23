@@ -1,9 +1,9 @@
 package com.example.FeedbackService.Strategy;
 
 public enum StrategyName {
-        TWITTER("TWITTER"),
-        GOOGLE("GOOGLE"),
-        DISCOURSE("DISCOURSE");
+        TWITTER("twitter"),
+        GOOGLE("google"),
+        DISCOURSE("discourse");
 
         private final String text;
 

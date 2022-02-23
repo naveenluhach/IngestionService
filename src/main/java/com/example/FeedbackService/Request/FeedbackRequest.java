@@ -1,48 +1,47 @@
 package com.example.FeedbackService.Request;
 
-import com.example.FeedbackService.Strategy.StrategyName;
-
 import javax.validation.constraints.NotBlank;
 
 public class FeedbackRequest {
 
-    String sourceName;
+    @NotBlank(message = "sourcename is a mandatory field")
+    String sourcename;
 
-    @NotBlank(message = "The tenantID is required.")
-    int tenantID;
-    int appID;
+    @NotBlank(message = "tenantname is a mandatory field")
+    String tenantname;
+    int appid;
 
 
-    public String getSourceName() {
-        return sourceName;
+    public String getSourcename() {
+        return sourcename;
     }
 
-    public void setSourceName(String sourceName) {
-        this.sourceName = sourceName;
+    public void setSourcename(String sourcename) {
+        this.sourcename = sourcename;
     }
 
-    public int getTenantID() {
-        return tenantID;
+    public String getTenantname() {
+        return tenantname;
     }
 
-    public void setTenantID(int tenantID) {
-        this.tenantID = tenantID;
+    public void setTenantname(String tenantname) {
+        this.tenantname = tenantname;
     }
 
-    public int getAppID() {
-        return appID;
+    public int getAppid() {
+        return appid;
     }
 
-    public void setAppID(int appID) {
-        this.appID = appID;
+    public void setAppid(int appid) {
+        this.appid = appid;
     }
 
     @Override
     public String toString() {
         return "FeedbackRequest{" +
-                "sourceName='" + sourceName + '\'' +
-                ", tenantID=" + tenantID +
-                ", appID=" + appID +
+                "sourcename='" + sourcename + '\'' +
+                ", tenantname='" + tenantname + '\'' +
+                ", appid=" + appid +
                 '}';
     }
 }

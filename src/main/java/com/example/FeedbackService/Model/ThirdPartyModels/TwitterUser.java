@@ -1,9 +1,10 @@
-package com.example.FeedbackService.Model;
+package com.example.FeedbackService.Model.ThirdPartyModels;
 
-public class Source {
+public class TwitterUser {
 
     int id;
     String name;
+    String username;
 
     public int getId() {
         return id;
@@ -19,5 +20,13 @@ public class Source {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

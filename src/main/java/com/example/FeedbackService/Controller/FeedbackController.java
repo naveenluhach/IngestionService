@@ -2,7 +2,6 @@ package com.example.FeedbackService.Controller;
 
 import com.example.FeedbackService.Model.Feedback;
 import com.example.FeedbackService.Request.FeedbackRequest;
-import com.example.FeedbackService.Response.FeedbackResponse;
 import com.example.FeedbackService.Response.IngestionServiceResponse;
 import com.example.FeedbackService.Services.EgressService;
 import com.example.FeedbackService.Services.IngestionService;
@@ -25,7 +24,6 @@ public class FeedbackController {
 
     @PostMapping("/triggerIngestion")
     public IngestionServiceResponse triggerIngestion(@RequestBody FeedbackRequest feedbackRequest) throws Exception{
-        //call to IngestionService common one
         LOGGER.info("Request received for triggerIngestion, FeedbackRequest object : {}", feedbackRequest);
         IngestionServiceResponse ingestionServiceResponse = ingestionService.startIngestion(feedbackRequest);
         LOGGER.info("Response for triggerIngestion, IngestionServiceResponse object : {}", ingestionServiceResponse);
@@ -35,8 +33,10 @@ public class FeedbackController {
 
     @GetMapping("/getFeedback")
     public Feedback getFeedback(@RequestBody FeedbackRequest feedbackRequest) throws Exception{
-                   Feedback feedback = egressService.fetchFeedback(feedbackRequest);
-                   return feedback;
+        LOGGER.info("Request received for getFeedback, FeedbackRequest object : {}", feedbackRequest);
+        Feedback feedback = egressService.fetchFeedback(feedbackRequest);
+        LOGGER.info("Response for getFeedback, Feedback object : {}", feedback);
+        return feedback;
     }
 
 }

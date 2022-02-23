@@ -8,4 +8,6 @@ public class Constants {
 
     public static final int DISCOURSE_ID = 3;
 
+    public static final int TWITTER_USERID_MYNTRA = 89443197;
+
 }
