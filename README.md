@@ -75,4 +75,6 @@ d.pattern violation- spelling mistakes
   PRIMARY KEY (`id`)
 
 
+**Changes in version 2:**
 
+Everything is derived through the data store MySQL. I have identified few use cases wherein we can move some load from MySQL to cache layer.
